@@ -5,65 +5,35 @@
 что есть разные выигрышные варианты
 и программа должна их распознавать. '''
 
-
-a = [['X', 'X', 'O'],
-     ['O', 'O', 'X'],
-     ['X', 'O', 'X']]
+a = [[1, 1, 0],
+     [0, 0, 1],
+     [1, 0, 1]]
 
 win = 0
 for i in range(len(a)):
     for j in range(len(a[i])):
 
-        if a[0][0] == 'X' and a[1][0] == 'X' and a[2][0] == 'X':
-            win = 1
-        elif a[0][1] == 'X' and a[1][1] == 'X' and a[2][1] == 'X':
+        if a[i][0] + a[i][1] + a[i][2] == 3:
             win = 1
 
-        elif a[0][2] == 'X' and a[1][2] == 'X' and a[2][2] == 'X':
+        elif a[0][2] + a[1][1] + a[2][0] == 3:
             win = 1
 
-        elif a[0][0] == 'X' and a[0][1] == 'X' and a[0][2] == 'X':
+        elif a[0][0] + a[1][1] + a[2][2] == 3:
             win = 1
 
-        elif a[1][0] == 'X' and a[1][1] == 'X' and a[1][2] == 'X':
-            win = 1
-
-        elif a[2][0] == 'X' and a[2][1] == 'X' and a[2][2] == 'X':
-            win = 1
-
-        elif a[0][0] == 'X' and a[1][1] == 'X' and a[2][2] == 'X':
-            win = 1
-
-        elif a[0][2] == 'X' and a[1][1] == 'X' and a[2][0] == 'X':
-            win = 1
-
-        elif a[0][0] == 'O' and a[1][0] == 'O' and a[2][0] == 'O':
+        elif a[0][j] + a[1][j] + a[2][j] == 0:
             win = -1
 
-        elif a[0][1] == 'O' and a[1][1] == 'O' and a[2][1] == 'O':
+        elif a[0][0] + a[1][1] + a[2][2] == 0:
             win = -1
 
-        elif a[0][2] == 'O' and a[1][2] == 'O' and a[2][2] == 'O':
+        elif a[0][2] + a[1][1] + a[2][0] == 0:
             win = -1
 
-        elif a[0][0] == 'O' and a[0][1] == 'O' and a[0][2] == 'O':
-            win = -1
-
-        elif a[1][0] == 'O' and a[1][1] == 'O' and a[1][2] == 'O':
-            win = -1
-
-        elif a[2][0] == 'O' and a[2][1] == 'O' and a[2][2] == 'O':
-            win = -1
-
-        elif a[0][0] == 'O' and a[1][1] == 'O' and a[2][2] == 'O':
-            win = -1
-
-        elif a[0][2] == 'O' and a[1][1] == 'O' and a[2][0] == 'O':
-            win = -1
-
-    if win == 1:
-        print("Победа игрока 'X'")
-    elif win == -1:
-        print("Победа игрока 'O'")
-    else:
-        print('Ничья')
+if win == 1:
+    print("Победа игрока 'X' ")
+elif win == -1:
+    print("Победа игрока 'Y' ")
+else:
+    print('Ничья')
